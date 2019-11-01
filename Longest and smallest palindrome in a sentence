@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+
+class MainClass
+{
+    class test
+    {
+        public string reverse(string w)
+        {
+            string z= "";
+            for(int j=w.Length-1;j>=0;j--)
+            {
+                z += w[j];
+            }
+            return z;
+        }
+        public string largest(List<string> v)
+        {
+            string longest = "";
+            
+
+            foreach (string l in v)// ["a","wow","peep","madam"]
+            {
+                if (l.Length > longest.Length)
+                {
+                    longest = l;
+                }
+            }
+            return longest;
+        }
+        public string smallest(List<string> v)
+        {
+            string shortest = "b";
+
+
+            foreach (string l in v)// ["a","wow","peep","madam"]
+            {
+                if (l.Length <= shortest.Length)
+                {
+                    shortest = l;
+                }
+                else
+                {
+                    shortest = "";
+                }
+            }
+            return shortest;
+        }
+    }
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("program to print max and  min palindrome in a sentence\n\n");
+        Console.WriteLine("Enter the sentence: \n");
+        string a = Console.ReadLine().ToLower();
+        string[] b = a.Split(' ');
+        List<string> o = new List<string>(); 
+        test obj = new test();
+        foreach(string i in b)
+        {
+            string c= obj.reverse(i);
+            bool z=string.Equals(i, c);
+            //Console.WriteLine("{0} {1}", i, c);
+            if (z)
+            {
+                o.Add(c);
+            }
+        }
+        Console.WriteLine();
+        Console.WriteLine("Smallest palindrome in the given sentence is: {0}\n",obj.smallest(o));
+        Console.WriteLine("Longest palindrome in the given sentence is: {0}",obj.largest(o));
+        Console.ReadKey();
+    }
+}
