@@ -17,8 +17,6 @@ class MainClass
         public string largest(List<string> v)
         {
             string longest = "";
-            
-
             foreach (string l in v)// ["a","wow","peep","madam"]
             {
                 if (l.Length > longest.Length)
@@ -30,18 +28,12 @@ class MainClass
         }
         public string smallest(List<string> v)
         {
-            string shortest = "b";
-
-
+            string shortest = "abcdefghijklmnopqr";
             foreach (string l in v)// ["a","wow","peep","madam"]
             {
                 if (l.Length <= shortest.Length)
                 {
                     shortest = l;
-                }
-                else
-                {
-                    shortest = "";
                 }
             }
             return shortest;
@@ -51,16 +43,14 @@ class MainClass
     {
         Console.WriteLine("program to print max and  min palindrome in a sentence\n\n");
         Console.WriteLine("Enter the sentence: \n");
-        string a = Console.ReadLine().ToLower();
+        string a = Console.ReadLine();
         string[] b = a.Split(' ');
         List<string> o = new List<string>(); 
         test obj = new test();
         foreach(string i in b)
         {
             string c= obj.reverse(i);
-            bool z=string.Equals(i, c);
-            //Console.WriteLine("{0} {1}", i, c);
-            if (z)
+            if (c.Equals(i,StringComparison.OrdinalIgnoreCase))
             {
                 o.Add(c);
             }
